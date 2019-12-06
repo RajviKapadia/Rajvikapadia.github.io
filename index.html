@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rajvi's Demo</title>
+	<meta name= viewport content= "width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<header>
+		<nav>
+			<div class="row clearfix">
+
+				<ul class="main-nav">
+					<li><a href="index.html#image">IMAGE GALLERY</a></li>
+					<li><a href="index.html#diceroll">DICE ROLL</a></li>
+					<li><a href="index.html#typetest">TYPING TEST</a></li>
+				</ul>
+				<!-- <a href="#" class="mobile-icon"  onclick="slideshow()"> <i class="fa fa-bars"></i> </a> -->
+			</div>
+		</nav>
+
+		<div class="main-content-header">
+			<h1> WELCOME TO <span class="colorchange">RAJVI'S DEMO</span>.<br>
+				CHECK OUT THESE FUN GAMES. </h1>
+			<a href="index.html#diceroll" class="btn btn-full"> Dice roll</a>
+			<a href="index.html#typetest" class="btn btn-nav"> Typing test</a>
+		</div>
+	</header>
+
+	<div id="diceroll">
+		<h3 style="color: white;">CLICK HERE TO ROLL THE DICE!</h3>
+		<button class="roll" onclick="rollDice()">Roll Dice</button><br>
+		<div class="dices">
+		<div id="die1" class="dice">0</div>
+		<div id="die2" class="dice">0</div>
+		</div>
+		<h2 id="status" style="clear:left; padding-bottom: 10px;"></h2>
+		<script>
+			function rollDice(){
+			    var die1 = document.getElementById("die1");
+			    var die2 = document.getElementById("die2");
+			    var status = document.getElementById("status");
+			    var d1 = Math.floor(Math.random() * 6) + 1;
+			    var d2 = Math.floor(Math.random() * 6) + 1;
+			    var diceTotal = d1 + d2;
+			    die1.innerHTML = d1;
+			    die2.innerHTML = d2;
+			    status.innerHTML = "You rolled "+diceTotal+".";
+			    if(d1 == d2){
+			        status.innerHTML += " DOUBLES! You get a free turn!!";
+			    }
+			}
+		</script>
+	</div>
+
+	<div id="typetest">
+		<div class="div">
+        <h1 id="optionBtn">How to play?</h1>
+		<p>Type the given word within <span id="seconds"></span> Seconds:</p>
+    	<p>To play again, just type the current word. Yout score will reset</p>
+        </div>
+        <div class="div">
+        <h1 class="display-2 mb-3" id="current-word"></h1>
+        <h4 class="mt-2" id="message"></h4>	<br>
+    	<input type="text" placeholder="Start typing..." id="word-input" autofocus><br><br>
+    	<h2>Time Left: <span id="time">0</span></h2>
+    	<h2>Score: <span id="score">0</span></h2><br>
+    	<h3>High score: <span id="high-score">0</span></h3>
+    	</div>
+    <script src="script.js"></script>
+	</div>
+
+	<div id="image">
+	<h2 style="color: black; padding: 20px;d"> </h2>
+	<p style="color: black; text-align: center;"><span style="font-size: 2em;">WELCOME, </span>back</p>
+		<div style="text-align:center">
+		  <h2>Tabbed Image Gallery</h2>
+		  <p>Click on the images below:</p>
+		</div>
+
+		<div class="row">
+		  <div class="column">
+		    <img src="image.jpg" style="width:100%" onclick="myFunction(this);">
+		  </div>
+		  <div class="column">
+		    <img src="image1.jpg" style="width:100%" onclick="myFunction(this);">
+		  </div>
+		  <div class="column">
+		    <img src="image2.jpg" style="width:100%" onclick="myFunction(this);">
+		  </div>
+		  <div class="column">
+		    <img src="image3.jpg" style="width:100%" onclick="myFunction(this);">
+		  </div>
+		</div>
+
+		<div class="container">
+		  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+		  <img id="expandedImg" style="width:65%">
+		  <div id="imgtext"></div>
+		</div>
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+
+<footer>
+	<h2 style="color: blue; padding: 5%; padding-bottom: 50px; text-align: center;">Thank you for visiting!</h2>
+</footer>
+</body>
+</html>
